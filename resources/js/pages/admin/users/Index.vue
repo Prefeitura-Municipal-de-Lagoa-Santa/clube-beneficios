@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Head, router, useForm } from '@inertiajs/vue3';
-import { Search, Shield, UserPlus } from 'lucide-vue-next';
+import { Head, Link, router, useForm } from '@inertiajs/vue3';
+import { ArrowLeft, Search, Shield, UserPlus } from 'lucide-vue-next';
 import { ref, watch } from 'vue';
 import AdminLayout from '@/layouts/AdminLayout.vue';
 import type { User, Role, PaginatedData } from '@/types';
@@ -53,6 +53,11 @@ const importLdapUser = (user: any) => {
 <template>
     <Head title="Usuários — Admin" />
 
+    <Link href="/admin" class="mb-4 inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900">
+        <ArrowLeft class="h-4 w-4" />
+        Voltar
+    </Link>
+
     <h1 class="mb-6 text-2xl font-bold text-gray-900">Usuários</h1>
 
     <!-- Search users -->
@@ -63,8 +68,41 @@ const importLdapUser = (user: any) => {
         </div>
     </div>
 
-    <!-- Users table -->
-    <div class="mb-8 overflow-hidden rounded-lg bg-white shadow">
+    <!-- Users cards (mobile) -->
+    <div class="mb-8 space-y-3 md:hidden">
+        <div v-for="user in users.data" :key="'card-' + user.id" class="rounded-lg bg-white p-4 shadow">
+            <div class="flex items-start justify-between">
+                <div>
+                    <p class="font-medium text-gray-900">{{ user.name }}</p>
+                    <p class="text-sm text-gray-500">{{ user.username }}</p>
+                    <p class="text-sm text-gray-500">Matrícula: {{ user.matricula || '—' }}</p>
+                </div>
+                <button v-if="editingUserId === user.id" @click="saveRoles(user.id)" class="rounded-md bg-green-600 px-3 py-1 text-xs font-medium text-white hover:bg-green-700">
+                    Salvar
+                </button>
+                <button v-else @click="startEditRoles(user)" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-brand-700">
+                    <Shield class="h-4 w-4" />
+                </button>
+            </div>
+            <div class="mt-3">
+                <div v-if="editingUserId === user.id" class="flex flex-wrap gap-2">
+                    <label v-for="role in roles" :key="role.id" class="flex items-center gap-1">
+                        <input type="checkbox" :value="role.name" v-model="editRoles" class="rounded border-gray-300 text-brand-700" />
+                        <span class="text-xs">{{ role.name }}</span>
+                    </label>
+                </div>
+                <div v-else class="flex flex-wrap gap-1">
+                    <span v-for="role in user.roles" :key="typeof role === 'string' ? role : role.name" class="rounded-full bg-brand-100 px-2 py-0.5 text-xs font-medium text-brand-700">
+                        {{ typeof role === 'string' ? role : role.name }}
+                    </span>
+                    <span v-if="!user.roles?.length" class="text-xs text-gray-400">Sem papéis</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Users table (desktop) -->
+    <div class="mb-8 hidden overflow-hidden rounded-lg bg-white shadow md:block">
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
