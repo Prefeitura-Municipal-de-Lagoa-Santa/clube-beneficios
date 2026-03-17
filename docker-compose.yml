@@ -1,0 +1,32 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: beneficios_app
+    restart: unless-stopped
+    ports:
+      # Expõe a aplicação na porta 8000
+      - "8086:80"
+    volumes:
+      # 1. Mapeia o código da aplicação
+      - .:/var/www/html
+
+      # 2. ✅ ESSA É A CORREÇÃO PRINCIPAL
+      #    Mapeia a pasta 'shared/storage' do servidor DIRETAMENTE sobre a pasta 'storage' da aplicação no contêiner.
+      #    Isso resolve o problema do link simbólico de forma definitiva.
+      - ../../shared/storage:/var/www/html/storage
+
+      # 3. (Opcional, mas recomendado) Faça o mesmo para outros diretórios compartilhados.
+      - ../../shared/bootstrap/cache:/var/www/html/bootstrap/cache
+    networks:
+      # Conecta à sua rede principal já existente
+      - rede_geral_existente
+    env_file:
+      - .env
+
+networks:
+  rede_geral_existente:
+    external: true
+    # Garanta que este é o nome exato da sua rede externa
+    name: rede_dados_geral
