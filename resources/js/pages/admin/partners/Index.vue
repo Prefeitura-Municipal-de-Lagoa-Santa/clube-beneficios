@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head, Link, router } from '@inertiajs/vue3';
-import { Plus, Pencil, Trash2, Search } from 'lucide-vue-next';
+import { ArrowLeft, Plus, Pencil, Trash2, Search } from 'lucide-vue-next';
 import { ref, watch } from 'vue';
 import AdminLayout from '@/layouts/AdminLayout.vue';
 import type { Partner, PaginatedData } from '@/types';
@@ -32,6 +32,11 @@ const destroy = (id: number) => {
 <template>
     <Head title="Parceiros — Admin" />
 
+    <Link href="/admin" class="mb-4 inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900">
+        <ArrowLeft class="h-4 w-4" />
+        Voltar
+    </Link>
+
     <div class="mb-6 flex items-center justify-between">
         <h1 class="text-2xl font-bold text-gray-900">Parceiros</h1>
         <Link href="/admin/parceiros/create" class="inline-flex items-center gap-2 rounded-lg bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">
@@ -52,7 +57,40 @@ const destroy = (id: number) => {
         </div>
     </div>
 
-    <div class="overflow-hidden rounded-lg bg-white shadow">
+    <!-- Partners cards (mobile) -->
+    <div class="space-y-3 md:hidden">
+        <div v-for="partner in partners.data" :key="'card-' + partner.id" class="rounded-lg bg-white p-4 shadow">
+            <div class="flex items-start justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 text-sm font-bold text-brand-700">
+                        <img v-if="partner.logo_url" :src="`/storage/${partner.logo_url}`" class="h-full w-full rounded-lg object-cover" />
+                        <span v-else>{{ partner.name.charAt(0) }}</span>
+                    </div>
+                    <div>
+                        <p class="font-medium text-gray-900">{{ partner.name }}</p>
+                        <p class="text-sm text-gray-500">{{ partner.category?.name || '—' }}</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <Link :href="`/admin/parceiros/${partner.id}/edit`" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-brand-700">
+                        <Pencil class="h-4 w-4" />
+                    </Link>
+                    <button @click="destroy(partner.id)" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-red-600">
+                        <Trash2 class="h-4 w-4" />
+                    </button>
+                </div>
+            </div>
+            <div class="mt-3 flex items-center gap-3">
+                <span class="text-sm text-gray-500">{{ partner.benefits_count || 0 }} benefícios</span>
+                <span :class="partner.active ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'" class="rounded-full px-2 py-1 text-xs font-medium">
+                    {{ partner.active ? 'Ativo' : 'Inativo' }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partners table (desktop) -->
+    <div class="hidden overflow-hidden rounded-lg bg-white shadow md:block">
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
