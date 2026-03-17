@@ -14,7 +14,7 @@ const props = defineProps<{
 <template>
     <Head :title="partner.name" />
 
-    <Link href="/beneficios" class="mb-6 inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800">
+    <Link href="/beneficios" class="mb-6 inline-flex items-center gap-2 text-sm text-brand-700 hover:text-brand-800">
         <ArrowLeft class="h-4 w-4" />
         Voltar para parceiros
     </Link>
@@ -29,14 +29,14 @@ const props = defineProps<{
                     :alt="partner.name"
                     class="max-h-full max-w-full object-contain p-2"
                 />
-                <span v-else class="text-3xl font-bold text-blue-600">
+                <span v-else class="text-3xl font-bold text-brand-700">
                     {{ partner.name.charAt(0) }}
                 </span>
             </div>
             <div>
                 <div class="flex items-center gap-3">
                     <h1 class="text-2xl font-bold text-gray-900">{{ partner.name }}</h1>
-                    <span v-if="partner.category" class="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700">
+                    <span v-if="partner.category" class="rounded-full bg-brand-100 px-3 py-1 text-xs font-medium text-brand-700">
                         {{ partner.category.name }}
                     </span>
                 </div>
@@ -51,11 +51,11 @@ const props = defineProps<{
                         <Phone class="h-4 w-4" />
                         {{ partner.phone }}
                     </span>
-                    <a v-if="partner.email" :href="`mailto:${partner.email}`" class="flex items-center gap-1 hover:text-blue-600">
+                    <a v-if="partner.email" :href="`mailto:${partner.email}`" class="flex items-center gap-1 hover:text-brand-700">
                         <Mail class="h-4 w-4" />
                         {{ partner.email }}
                     </a>
-                    <a v-if="partner.website" :href="partner.website" target="_blank" rel="noopener" class="flex items-center gap-1 hover:text-blue-600">
+                    <a v-if="partner.website" :href="partner.website" target="_blank" rel="noopener" class="flex items-center gap-1 hover:text-brand-700">
                         <Globe class="h-4 w-4" />
                         Website
                     </a>

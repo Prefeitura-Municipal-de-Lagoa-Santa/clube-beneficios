@@ -58,7 +58,7 @@ const destroy = (roleId: number) => {
 
     <div class="mb-6 flex items-center justify-between">
         <h1 class="text-2xl font-bold text-gray-900">Papéis e Permissões</h1>
-        <button @click="showCreateForm = !showCreateForm" class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
+        <button @click="showCreateForm = !showCreateForm" class="inline-flex items-center gap-2 rounded-lg bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">
             <Plus class="h-4 w-4" />
             Novo Papel
         </button>
@@ -70,19 +70,19 @@ const destroy = (roleId: number) => {
         <form @submit.prevent="submitCreate" class="space-y-4">
             <div>
                 <label class="mb-1 block text-sm font-medium text-gray-700">Nome</label>
-                <input v-model="createForm.name" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                <input v-model="createForm.name" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-700">Permissões</label>
                 <div class="flex flex-wrap gap-3">
                     <label v-for="perm in permissions" :key="perm.id" class="flex items-center gap-1">
-                        <input type="checkbox" :value="perm.name" v-model="createForm.permissions" class="rounded border-gray-300 text-blue-600" />
+                        <input type="checkbox" :value="perm.name" v-model="createForm.permissions" class="rounded border-gray-300 text-brand-700" />
                         <span class="text-sm">{{ perm.name }}</span>
                     </label>
                 </div>
             </div>
             <div class="flex gap-2">
-                <button type="submit" :disabled="createForm.processing" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">Criar</button>
+                <button type="submit" :disabled="createForm.processing" class="rounded-lg bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">Criar</button>
                 <button type="button" @click="showCreateForm = false" class="rounded-lg border px-4 py-2 text-sm font-medium text-gray-700">Cancelar</button>
             </div>
         </form>
@@ -94,11 +94,11 @@ const destroy = (roleId: number) => {
             <div v-if="editingRoleId === role.id">
                 <form @submit.prevent="submitEdit(role.id)" class="space-y-4">
                     <div>
-                        <input v-model="editForm.name" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                        <input v-model="editForm.name" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                     </div>
                     <div class="flex flex-wrap gap-3">
                         <label v-for="perm in permissions" :key="perm.id" class="flex items-center gap-1">
-                            <input type="checkbox" :value="perm.name" v-model="editForm.permissions" class="rounded border-gray-300 text-blue-600" />
+                            <input type="checkbox" :value="perm.name" v-model="editForm.permissions" class="rounded border-gray-300 text-brand-700" />
                             <span class="text-sm">{{ perm.name }}</span>
                         </label>
                     </div>
@@ -123,7 +123,7 @@ const destroy = (roleId: number) => {
                     </div>
                 </div>
                 <div class="flex gap-1">
-                    <button @click="startEdit(role)" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-blue-600">
+                    <button @click="startEdit(role)" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-brand-700">
                         <Pencil class="h-4 w-4" />
                     </button>
                     <button @click="destroy(role.id)" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-red-600">

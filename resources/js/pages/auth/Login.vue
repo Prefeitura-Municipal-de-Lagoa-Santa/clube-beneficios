@@ -19,16 +19,13 @@ const submit = () => {
 
 <template>
     <Head title="Login" />
-    <div class="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 px-4">
+    <div class="flex min-h-screen items-center justify-center bg-gradient-to-br from-brand-600 to-brand-800 px-4">
         <div class="w-full max-w-md">
             <div class="mb-8 text-center">
-                <div class="mb-4 flex justify-center">
-                    <div class="rounded-full bg-white/20 p-4">
-                        <Gift class="h-10 w-10 text-white" />
-                    </div>
+                <div class="mb-4 flex justify-center">     
+                    <img src="/foto_de_capa.png" alt="Clube de Benefícios - Prefeitura Municipal de Lagoa Santa" class="mx-auto w-full max-w-md object-contain" />
                 </div>
-                <h1 class="text-2xl font-bold text-white">Clube de Benefícios</h1>
-                <p class="mt-1 text-blue-200">Acesse com suas credenciais de rede</p>
+                                <p class="mt-1 text-brand-200">Acesse com suas credenciais de rede</p>
             </div>
 
             <form @submit.prevent="submit" class="rounded-2xl bg-white p-8 shadow-xl">
@@ -43,7 +40,7 @@ const submit = () => {
                         autocomplete="username"
                         required
                         autofocus
-                        class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none"
                         placeholder="Seu usuário de rede"
                     />
                     <p v-if="form.errors.username" class="mt-1 text-sm text-red-600">
@@ -61,7 +58,7 @@ const submit = () => {
                         type="password"
                         autocomplete="current-password"
                         required
-                        class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none"
                         placeholder="Sua senha de rede"
                     />
                     <p v-if="form.errors.password" class="mt-1 text-sm text-red-600">
@@ -72,7 +69,7 @@ const submit = () => {
                 <button
                     type="submit"
                     :disabled="form.processing"
-                    class="w-full rounded-lg bg-blue-600 px-4 py-3 text-sm font-medium text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:opacity-50"
+                    class="w-full rounded-lg bg-brand-700 px-4 py-3 text-sm font-medium text-white hover:bg-brand-600 focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:outline-none disabled:opacity-50"
                 >
                     <span v-if="form.processing">Entrando...</span>
                     <span v-else>Entrar</span>

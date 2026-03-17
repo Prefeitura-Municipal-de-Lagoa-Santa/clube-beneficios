@@ -42,7 +42,7 @@ const destroy = (id: number) => {
 
     <div class="mb-6 flex items-center justify-between">
         <h1 class="text-2xl font-bold text-gray-900">Benefícios</h1>
-        <Link href="/admin/beneficios/create" class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
+        <Link href="/admin/beneficios/create" class="inline-flex items-center gap-2 rounded-lg bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">
             <Plus class="h-4 w-4" />
             Novo Benefício
         </Link>
@@ -51,9 +51,9 @@ const destroy = (id: number) => {
     <div class="mb-4 flex gap-4">
         <div class="relative flex-1">
             <Search class="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
-            <input v-model="search" type="text" placeholder="Buscar..." class="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+            <input v-model="search" type="text" placeholder="Buscar..." class="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
         </div>
-        <select v-model="partnerId" class="rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+        <select v-model="partnerId" class="rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none">
             <option value="">Todos os parceiros</option>
             <option v-for="p in partners" :key="p.id" :value="p.id">{{ p.name }}</option>
         </select>
@@ -79,7 +79,7 @@ const destroy = (id: number) => {
                         </span>
                     </td>
                     <td class="whitespace-nowrap px-6 py-4 text-right">
-                        <Link :href="`/admin/beneficios/${benefit.id}/edit`" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-blue-600">
+                        <Link :href="`/admin/beneficios/${benefit.id}/edit`" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-brand-700">
                             <Pencil class="h-4 w-4" />
                         </Link>
                         <button @click="destroy(benefit.id)" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-red-600">

@@ -16,13 +16,13 @@ const isAdminOrManager = computed(() => {
 <template>
     <div class="min-h-screen bg-gray-50">
         <!-- Header -->
-        <header class="bg-blue-700 text-white shadow-lg">
+        <header class="bg-brand-700 text-white shadow-lg print:hidden">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex items-center gap-3">
-                        <Gift class="h-8 w-8" />
                         <Link href="/beneficios" class="text-xl font-bold">
-                            Clube de Benefícios
+                        <img src="/foto_de_capa.png" alt="Clube de Benefícios - Prefeitura Municipal de Lagoa Santa" class="h-12 w-45" />              
+                            
                         </Link>
                     </div>
 
@@ -30,13 +30,13 @@ const isAdminOrManager = computed(() => {
                     <nav class="hidden items-center gap-6 md:flex">
                         <Link
                             href="/beneficios"
-                            class="rounded-md px-3 py-2 text-sm font-medium hover:bg-blue-600"
+                            class="rounded-md px-3 py-2 text-sm font-medium hover:bg-brand-600"
                         >
                             Parceiros
                         </Link>
                         <Link
                             href="/carteirinha"
-                            class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-blue-600"
+                            class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-brand-600"
                         >
                             <CreditCard class="h-4 w-4" />
                             Carteirinha
@@ -44,7 +44,7 @@ const isAdminOrManager = computed(() => {
                         <Link
                             v-if="isAdminOrManager"
                             href="/admin"
-                            class="flex items-center gap-2 rounded-md bg-blue-800 px-3 py-2 text-sm font-medium hover:bg-blue-600"
+                            class="flex items-center gap-2 rounded-md bg-brand-800 px-3 py-2 text-sm font-medium hover:bg-brand-600"
                         >
                             <Settings class="h-4 w-4" />
                             Administração
@@ -55,7 +55,7 @@ const isAdminOrManager = computed(() => {
                                 href="/logout"
                                 method="post"
                                 as="button"
-                                class="rounded-md p-2 hover:bg-blue-600"
+                                class="rounded-md p-2 hover:bg-brand-600"
                             >
                                 <LogOut class="h-4 w-4" />
                             </Link>
@@ -72,16 +72,16 @@ const isAdminOrManager = computed(() => {
                 <!-- Mobile Nav -->
                 <nav v-if="showMobileMenu" class="pb-4 md:hidden">
                     <div class="flex flex-col gap-2">
-                        <Link href="/beneficios" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-blue-600">
+                        <Link href="/beneficios" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-brand-600">
                             Parceiros
                         </Link>
-                        <Link href="/carteirinha" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-blue-600">
+                        <Link href="/carteirinha" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-brand-600">
                             Carteirinha
                         </Link>
-                        <Link v-if="isAdminOrManager" href="/admin" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-blue-600">
+                        <Link v-if="isAdminOrManager" href="/admin" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-brand-600">
                             Administração
                         </Link>
-                        <Link href="/logout" method="post" as="button" class="rounded-md px-3 py-2 text-left text-sm font-medium hover:bg-blue-600">
+                        <Link href="/logout" method="post" as="button" class="rounded-md px-3 py-2 text-left text-sm font-medium hover:bg-brand-600">
                             Sair
                         </Link>
                     </div>

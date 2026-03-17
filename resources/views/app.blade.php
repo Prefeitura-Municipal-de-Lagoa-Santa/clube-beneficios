@@ -6,6 +6,7 @@
 
         <title inertia>{{ config('app.name', 'Clube de Benefícios') }}</title>
 
+        <link rel="icon" href="/logo.png" type="image/png">
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700" rel="stylesheet" />
 

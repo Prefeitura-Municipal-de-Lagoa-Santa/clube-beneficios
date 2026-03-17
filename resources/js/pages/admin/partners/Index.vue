@@ -34,7 +34,7 @@ const destroy = (id: number) => {
 
     <div class="mb-6 flex items-center justify-between">
         <h1 class="text-2xl font-bold text-gray-900">Parceiros</h1>
-        <Link href="/admin/parceiros/create" class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
+        <Link href="/admin/parceiros/create" class="inline-flex items-center gap-2 rounded-lg bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">
             <Plus class="h-4 w-4" />
             Novo Parceiro
         </Link>
@@ -47,7 +47,7 @@ const destroy = (id: number) => {
                 v-model="search"
                 type="text"
                 placeholder="Buscar parceiro..."
-                class="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                class="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none"
             />
         </div>
     </div>
@@ -67,7 +67,7 @@ const destroy = (id: number) => {
                 <tr v-for="partner in partners.data" :key="partner.id" class="hover:bg-gray-50">
                     <td class="whitespace-nowrap px-6 py-4">
                         <div class="flex items-center gap-3">
-                            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 text-sm font-bold text-blue-600">
+                            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 text-sm font-bold text-brand-700">
                                 <img v-if="partner.logo_url" :src="`/storage/${partner.logo_url}`" class="h-full w-full rounded-lg object-cover" />
                                 <span v-else>{{ partner.name.charAt(0) }}</span>
                             </div>
@@ -87,7 +87,7 @@ const destroy = (id: number) => {
                     </td>
                     <td class="whitespace-nowrap px-6 py-4 text-right">
                         <div class="flex items-center justify-end gap-2">
-                            <Link :href="`/admin/parceiros/${partner.id}/edit`" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-blue-600">
+                            <Link :href="`/admin/parceiros/${partner.id}/edit`" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-brand-700">
                                 <Pencil class="h-4 w-4" />
                             </Link>
                             <button @click="destroy(partner.id)" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-red-600">
@@ -108,7 +108,7 @@ const destroy = (id: number) => {
             :href="link.url || ''"
             :class="[
                 'rounded-md px-3 py-1 text-sm',
-                link.active ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-50',
+                link.active ? 'bg-brand-700 text-white' : 'bg-white text-gray-700 hover:bg-gray-50',
                 !link.url ? 'pointer-events-none opacity-50' : ''
             ]"
             v-html="link.label"

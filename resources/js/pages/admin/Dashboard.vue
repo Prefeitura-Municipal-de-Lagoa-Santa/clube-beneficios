@@ -24,11 +24,11 @@ const isAdmin = computed(() => auth.value?.user.roles?.includes('admin'));
                 class="group rounded-lg border bg-white p-6 shadow-sm transition hover:shadow-md"
             >
                 <div class="flex items-center gap-4">
-                    <div class="rounded-lg bg-blue-100 p-3">
-                        <Building2 class="h-6 w-6 text-blue-600" />
+                    <div class="rounded-lg bg-brand-100 p-3">
+                        <Building2 class="h-6 w-6 text-brand-700" />
                     </div>
                     <div>
-                        <h2 class="text-lg font-semibold text-gray-900 group-hover:text-blue-600">Parceiros</h2>
+                        <h2 class="text-lg font-semibold text-gray-900 group-hover:text-brand-700">Parceiros</h2>
                         <p class="text-sm text-gray-500">Gerenciar estabelecimentos parceiros</p>
                     </div>
                 </div>

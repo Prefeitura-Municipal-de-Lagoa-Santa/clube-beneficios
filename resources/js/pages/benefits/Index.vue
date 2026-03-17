@@ -49,12 +49,12 @@ watch(selectedCategory, applyFilters);
                 v-model="search"
                 type="text"
                 placeholder="Buscar parceiro..."
-                class="w-full rounded-lg border border-gray-300 py-3 pl-10 pr-4 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                class="w-full rounded-lg border border-gray-300 py-3 pl-10 pr-4 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none"
             />
         </div>
         <select
             v-model="selectedCategory"
-            class="rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            class="rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none"
         >
             <option value="">Todas as categorias</option>
             <option v-for="cat in categories" :key="cat.id" :value="cat.slug">
@@ -78,16 +78,16 @@ watch(selectedCategory, applyFilters);
                     :alt="partner.name"
                     class="max-h-full max-w-full object-contain"
                 />
-                <div v-else class="flex h-20 w-20 items-center justify-center rounded-full bg-blue-100 text-2xl font-bold text-blue-600">
+                <div v-else class="flex h-20 w-20 items-center justify-center rounded-full bg-brand-100 text-2xl font-bold text-brand-700">
                     {{ partner.name.charAt(0) }}
                 </div>
             </div>
             <div class="p-5">
                 <div class="mb-2 flex items-center justify-between">
-                    <h3 class="text-lg font-semibold text-gray-900 group-hover:text-blue-600">
+                    <h3 class="text-lg font-semibold text-gray-900 group-hover:text-brand-700">
                         {{ partner.name }}
                     </h3>
-                    <span v-if="partner.category" class="rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700">
+                    <span v-if="partner.category" class="rounded-full bg-brand-100 px-2 py-1 text-xs font-medium text-brand-700">
                         {{ partner.category.name }}
                     </span>
                 </div>
@@ -104,7 +104,7 @@ watch(selectedCategory, applyFilters);
                         {{ partner.phone }}
                     </span>
                 </div>
-                <div v-if="partner.benefits_count" class="mt-3 text-sm font-medium text-blue-600">
+                <div v-if="partner.benefits_count" class="mt-3 text-sm font-medium text-brand-700">
                     {{ partner.benefits_count }} benefício{{ partner.benefits_count > 1 ? 's' : '' }}
                 </div>
             </div>
@@ -123,7 +123,7 @@ watch(selectedCategory, applyFilters);
             :href="link.url || ''"
             :class="[
                 'rounded-md px-4 py-2 text-sm',
-                link.active ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-50',
+                link.active ? 'bg-brand-700 text-white' : 'bg-white text-gray-700 hover:bg-gray-50',
                 !link.url ? 'pointer-events-none opacity-50' : ''
             ]"
             v-html="link.label"

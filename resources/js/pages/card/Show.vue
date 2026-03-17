@@ -36,24 +36,21 @@ const printCard = () => {
     <Head title="Minha Carteirinha" />
 
     <div class="mx-auto max-w-lg">
-        <h1 class="mb-8 text-center text-3xl font-bold text-gray-900">Minha Carteirinha</h1>
+        <h1 class="mb-8 text-center text-3xl font-bold text-gray-900 print:hidden">Minha Carteirinha</h1>
 
         <!-- Card -->
-        <div v-if="card" class="overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 p-8 text-white shadow-xl print:shadow-none" id="member-card">
+        <div v-if="card" class="overflow-hidden rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 p-8 text-white shadow-xl print:shadow-none" id="member-card">
             <div class="mb-6 flex items-center gap-3">
-                <CreditCard class="h-8 w-8" />
-                <div>
-                    <h2 class="text-lg font-bold">Clube de Benefícios</h2>
-                    <p class="text-xs text-blue-200">Prefeitura Municipal de Lagoa Santa</p>
-                </div>
+                <img src="/foto_de_capa.png" alt="Clube de Benefícios - Prefeitura Municipal de Lagoa Santa" class="h-12 w-45" />
+                
             </div>
 
             <div class="flex flex-col items-center gap-6 sm:flex-row">
                 <div class="flex-1">
-                    <p class="text-sm text-blue-200">Nome</p>
+                    <p class="text-sm text-brand-200">Nome</p>
                     <p class="text-xl font-bold">{{ user?.name }}</p>
-                    <p class="mt-3 text-sm text-blue-200">Matrícula</p>
-                    <p class="text-lg font-semibold">{{ user?.matricula || '—' }}</p>
+                    <!--p class="mt-3 text-sm text-brand-200">Matrícula</p>
+                    <p class="text-lg font-semibold">{{ user?.matricula || '—' }}</p-->
                 </div>
 
                 <div class="rounded-xl bg-white p-3">
@@ -61,7 +58,7 @@ const printCard = () => {
                 </div>
             </div>
 
-            <p class="mt-6 text-center text-xs text-blue-300">
+            <p class="mt-6 text-center text-xs text-brand-300">
                 Emitida em {{ new Date(card.issued_at).toLocaleDateString('pt-BR') }}
             </p>
         </div>
@@ -74,7 +71,7 @@ const printCard = () => {
             <button
                 @click="generateCard"
                 :disabled="form.processing"
-                class="rounded-lg bg-blue-600 px-8 py-3 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50"
+                class="rounded-lg bg-brand-700 px-8 py-3 text-sm font-medium text-white hover:bg-brand-600 disabled:opacity-50"
             >
                 Gerar Carteirinha
             </button>

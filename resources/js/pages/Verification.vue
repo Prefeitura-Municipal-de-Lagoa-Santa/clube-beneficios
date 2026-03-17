@@ -13,12 +13,15 @@ const props = defineProps<{
 
 <template>
     <Head title="Verificação de Carteirinha" />
-    <div class="flex min-h-screen items-center justify-center p-4" :class="[
+    <div class="flex min-h-screen flex-col items-center justify-center p-4" :class="[
         !found ? 'bg-gray-100' :
-        active ? 'bg-gradient-to-br from-green-500 to-green-700' :
-        'bg-gradient-to-br from-red-500 to-red-700'
+        active ? 'bg-gradient-to-br from-green-700 to-green-900' :
+        'bg-gradient-to-br from-red-700 to-red-900'
     ]">
+        <img src="/foto_de_capa.png" alt="Clube de Benefícios - Prefeitura Municipal de Lagoa Santa" class="mb-6 h-16 w-auto" />
+
         <div class="w-full max-w-md rounded-2xl bg-white p-10 text-center shadow-2xl">
+
             <!-- Not found -->
             <template v-if="!found">
                 <AlertTriangle class="mx-auto mb-6 h-20 w-20 text-yellow-500" />

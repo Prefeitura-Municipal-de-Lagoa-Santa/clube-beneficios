@@ -66,13 +66,13 @@ const submit = () => {
             <div class="grid gap-6 sm:grid-cols-2">
                 <div class="sm:col-span-2">
                     <label class="mb-1 block text-sm font-medium text-gray-700">Nome *</label>
-                    <input v-model="form.name" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                    <input v-model="form.name" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                     <p v-if="form.errors.name" class="mt-1 text-sm text-red-600">{{ form.errors.name }}</p>
                 </div>
 
                 <div>
                     <label class="mb-1 block text-sm font-medium text-gray-700">Categoria *</label>
-                    <select v-model="form.category_id" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <select v-model="form.category_id" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none">
                         <option value="" disabled>Selecione...</option>
                         <option v-for="cat in categories" :key="cat.id" :value="cat.id">{{ cat.name }}</option>
                     </select>
@@ -81,7 +81,7 @@ const submit = () => {
 
                 <div>
                     <label class="mb-1 block text-sm font-medium text-gray-700">CNPJ</label>
-                    <input v-model="form.cnpj" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                    <input v-model="form.cnpj" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                 </div>
 
                 <div class="sm:col-span-2">
@@ -92,32 +92,32 @@ const submit = () => {
 
                 <div class="sm:col-span-2">
                     <label class="mb-1 block text-sm font-medium text-gray-700">Endereço</label>
-                    <input v-model="form.address" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                    <input v-model="form.address" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                 </div>
 
                 <div>
                     <label class="mb-1 block text-sm font-medium text-gray-700">Telefone</label>
-                    <input v-model="form.phone" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                    <input v-model="form.phone" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                 </div>
 
                 <div>
                     <label class="mb-1 block text-sm font-medium text-gray-700">Email</label>
-                    <input v-model="form.email" type="email" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                    <input v-model="form.email" type="email" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                 </div>
 
                 <div class="sm:col-span-2">
                     <label class="mb-1 block text-sm font-medium text-gray-700">Website</label>
-                    <input v-model="form.website" type="url" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                    <input v-model="form.website" type="url" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                 </div>
 
                 <div class="sm:col-span-2">
                     <label class="mb-1 block text-sm font-medium text-gray-700">Descrição</label>
-                    <textarea v-model="form.description" rows="3" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                    <textarea v-model="form.description" rows="3" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                 </div>
 
                 <div class="sm:col-span-2">
                     <label class="flex items-center gap-2">
-                        <input v-model="form.active" type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                        <input v-model="form.active" type="checkbox" class="rounded border-gray-300 text-brand-700 focus:ring-brand-500" />
                         <span class="text-sm font-medium text-gray-700">Ativo</span>
                     </label>
                 </div>
@@ -127,7 +127,7 @@ const submit = () => {
                 <Link href="/admin/parceiros" class="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
                     Cancelar
                 </Link>
-                <button type="submit" :disabled="form.processing" class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50">
+                <button type="submit" :disabled="form.processing" class="rounded-lg bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600 disabled:opacity-50">
                     {{ isEditing ? 'Salvar' : 'Cadastrar' }}
                 </button>
             </div>

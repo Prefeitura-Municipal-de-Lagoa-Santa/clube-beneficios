@@ -59,7 +59,7 @@ const importLdapUser = (user: any) => {
     <div class="mb-4">
         <div class="relative">
             <Search class="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
-            <input v-model="search" type="text" placeholder="Buscar usuário..." class="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+            <input v-model="search" type="text" placeholder="Buscar usuário..." class="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none" />
         </div>
     </div>
 
@@ -83,12 +83,12 @@ const importLdapUser = (user: any) => {
                     <td class="px-6 py-4">
                         <div v-if="editingUserId === user.id" class="flex flex-wrap gap-2">
                             <label v-for="role in roles" :key="role.id" class="flex items-center gap-1">
-                                <input type="checkbox" :value="role.name" v-model="editRoles" class="rounded border-gray-300 text-blue-600" />
+                                <input type="checkbox" :value="role.name" v-model="editRoles" class="rounded border-gray-300 text-brand-700" />
                                 <span class="text-xs">{{ role.name }}</span>
                             </label>
                         </div>
                         <div v-else class="flex flex-wrap gap-1">
-                            <span v-for="role in user.roles" :key="typeof role === 'string' ? role : role.name" class="rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-700">
+                            <span v-for="role in user.roles" :key="typeof role === 'string' ? role : role.name" class="rounded-full bg-brand-100 px-2 py-0.5 text-xs font-medium text-brand-700">
                                 {{ typeof role === 'string' ? role : role.name }}
                             </span>
                             <span v-if="!user.roles?.length" class="text-xs text-gray-400">Sem papéis</span>
@@ -98,7 +98,7 @@ const importLdapUser = (user: any) => {
                         <button v-if="editingUserId === user.id" @click="saveRoles(user.id)" class="rounded-md bg-green-600 px-3 py-1 text-xs font-medium text-white hover:bg-green-700">
                             Salvar
                         </button>
-                        <button v-else @click="startEditRoles(user)" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-blue-600">
+                        <button v-else @click="startEditRoles(user)" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-brand-700">
                             <Shield class="h-4 w-4" />
                         </button>
                     </td>
@@ -111,7 +111,7 @@ const importLdapUser = (user: any) => {
     <div class="rounded-lg bg-white p-6 shadow">
         <h2 class="mb-4 text-lg font-bold text-gray-900">Importar do Active Directory</h2>
         <div class="mb-4 flex gap-3">
-            <input v-model="ldapSearch" type="text" placeholder="Buscar no AD (mín. 2 caracteres)..." class="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none" @keyup.enter="searchLdap" />
+            <input v-model="ldapSearch" type="text" placeholder="Buscar no AD (mín. 2 caracteres)..." class="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none" @keyup.enter="searchLdap" />
             <button @click="searchLdap" class="rounded-lg bg-gray-800 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700">
                 Buscar
             </button>
@@ -126,7 +126,7 @@ const importLdapUser = (user: any) => {
                 <button
                     v-if="!result.already_imported"
                     @click="importLdapUser(result)"
-                    class="inline-flex items-center gap-1 rounded-md bg-blue-600 px-3 py-1 text-xs font-medium text-white hover:bg-blue-700"
+                    class="inline-flex items-center gap-1 rounded-md bg-brand-700 px-3 py-1 text-xs font-medium text-white hover:bg-brand-600"
                 >
                     <UserPlus class="h-3 w-3" />
                     Importar

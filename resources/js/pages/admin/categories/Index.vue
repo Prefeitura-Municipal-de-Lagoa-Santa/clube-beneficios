@@ -22,7 +22,7 @@ const destroy = (id: number) => {
 
     <div class="mb-6 flex items-center justify-between">
         <h1 class="text-2xl font-bold text-gray-900">Categorias</h1>
-        <Link href="/admin/categorias/create" class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
+        <Link href="/admin/categorias/create" class="inline-flex items-center gap-2 rounded-lg bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600">
             <Plus class="h-4 w-4" />
             Nova Categoria
         </Link>
@@ -50,7 +50,7 @@ const destroy = (id: number) => {
                         </span>
                     </td>
                     <td class="whitespace-nowrap px-6 py-4 text-right">
-                        <Link :href="`/admin/categorias/${category.id}/edit`" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-blue-600">
+                        <Link :href="`/admin/categorias/${category.id}/edit`" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-brand-700">
                             <Pencil class="h-4 w-4" />
                         </Link>
                         <button @click="destroy(category.id)" class="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-red-600">
