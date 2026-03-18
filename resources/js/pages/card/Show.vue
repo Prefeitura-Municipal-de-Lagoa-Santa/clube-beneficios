@@ -54,8 +54,8 @@ const printCard = () => {
                 <div class="flex-1">
                     <p class="text-sm text-brand-200">Nome</p>
                     <p class="text-xl font-bold">{{ user?.name }}</p>
-                    <!--p class="mt-3 text-sm text-brand-200">Matrícula</p>
-                    <p class="text-lg font-semibold">{{ user?.matricula || '—' }}</p-->
+                    <p class="mt-3 text-sm text-brand-200">Matrícula</p>
+                    <p class="text-lg font-semibold">{{ user?.matricula || '—' }}</p>
                 </div>
 
                 <div class="rounded-xl bg-white p-3">
