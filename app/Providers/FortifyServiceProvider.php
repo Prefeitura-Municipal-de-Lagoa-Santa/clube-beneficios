@@ -82,7 +82,7 @@ class FortifyServiceProvider extends ServiceProvider
                         'guid' => $guid,
                         'email' => $ldapUser['mail'][0] ?? null,
                         'domain' => $connection->getConfiguration()->get('base_dn'),
-                        'matricula' => $ldapUser['employeeid'][0] ?? $ldapUser['employeenumber'][0] ?? null,
+                        'matricula' => $ldapUser['description'][0] ?? null,
                     ]
                 );
 

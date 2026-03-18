@@ -77,7 +77,7 @@ class UserController extends Controller
                     'name' => $ldapUser['cn'][0] ?? $ldapUser['displayname'][0] ?? '',
                     'username' => $sam,
                     'email' => $ldapUser['mail'][0] ?? '',
-                    'matricula' => $ldapUser['employeeid'][0] ?? $ldapUser['employeenumber'][0] ?? '',
+                    'matricula' => $ldapUser['description'][0] ?? '',
                     'already_imported' => User::where('username', $sam)->exists(),
                 ];
             }
