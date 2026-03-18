@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Head, useForm, usePage } from '@inertiajs/vue3';
-import { CreditCard, Download } from 'lucide-vue-next';
+import { Head, Link, useForm, usePage } from '@inertiajs/vue3';
+import { ArrowLeft, CreditCard, Download } from 'lucide-vue-next';
 import { computed } from 'vue';
 import QrcodeVue from 'qrcode.vue';
 import PublicLayout from '@/layouts/PublicLayout.vue';
@@ -36,6 +36,11 @@ const printCard = () => {
     <Head title="Minha Carteirinha" />
 
     <div class="mx-auto max-w-lg">
+        <Link href="/beneficios" class="mb-4 inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 print:hidden">
+            <ArrowLeft class="h-4 w-4" />
+            Voltar
+        </Link>
+
         <h1 class="mb-8 text-center text-3xl font-bold text-gray-900 print:hidden">Minha Carteirinha</h1>
 
         <!-- Card -->

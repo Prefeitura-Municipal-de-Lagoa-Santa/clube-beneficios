@@ -14,13 +14,19 @@ Route::middleware(['auth', 'ldap.active', 'role:admin|partner_manager'])->prefix
     })->name('dashboard');
 
     // Partners
-    Route::resource('parceiros', PartnerController::class)->names('partners');
+    Route::resource('parceiros', PartnerController::class)
+        ->names('partners')
+        ->parameters(['parceiros' => 'partner']);
 
     // Categories
-    Route::resource('categorias', CategoryController::class)->names('categories');
+    Route::resource('categorias', CategoryController::class)
+        ->names('categories')
+        ->parameters(['categorias' => 'category']);
 
     // Benefits
-    Route::resource('beneficios', BenefitController::class)->names('benefits');
+    Route::resource('beneficios', BenefitController::class)
+        ->names('benefits')
+        ->parameters(['beneficios' => 'benefit']);
 
     // Users (admin only)
     Route::middleware('role:admin')->group(function () {
